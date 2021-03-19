@@ -28,8 +28,8 @@ class LoginScreen extends StatelessWidget {
                           const Offset(0, 20),
                           const Offset(150, 20),
                           <Color>[
-                            Colors.red,
-                            Colors.yellow,
+                            Colors.lightBlue,
+                            Colors.blue,
                           ],
                         )
                   ),

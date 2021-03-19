@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
         builder: (context, AsyncSnapshot<bool> snapshot){
           if (snapshot.hasData && snapshot.data){
             return HomeScreen();
-            print("a");
           } else {
             return LoginScreen();
           }

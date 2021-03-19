@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "145277831198",
+    "project_id": "onetime-9b75d",
+    "storage_bucket": "onetime-9b75d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145277831198:android:28e25c8e4d2a909c45060f",
+        "android_client_info": {
+          "package_name": "com.example.onetime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145277831198-njjeu1usggfk8d9q9ictpggmbdfkd8ea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBudG5SrF51GcQW3zbKbGXQrKrRGaCA_98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145277831198-njjeu1usggfk8d9q9ictpggmbdfkd8ea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

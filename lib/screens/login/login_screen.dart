@@ -6,7 +6,7 @@ import 'dart:ui' as ui;
 
 import 'package:provider/provider.dart';
 
-import '../../home_screen.dart';
+import '../home/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override

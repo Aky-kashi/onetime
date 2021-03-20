@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:onetime/screens/mypage/mypage_screen.dart';
+import 'package:onetime/screens/notifications/notification_screen.dart';
+import 'package:onetime/screens/publish/publish_class_screen.dart';
+import 'package:onetime/screens/settings/settings_screen.dart';
 
 import '../../constants/colors.dart';
-import '../../home_screen.dart';
+import '../home/home_screen.dart';
 
 class NavigationHolder {
   static GlobalKey<NavigatorState> rootNavigatorKey =
       GlobalKey<NavigatorState>();
   static GlobalKey<NavigatorState> homeNavigatorKey =
       GlobalKey<NavigatorState>();
-  static GlobalKey<NavigatorState> chatRoomNavigatorKey =
+  static GlobalKey<NavigatorState> notificationNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> publishNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> myPageNavigatorKey =
       GlobalKey<NavigatorState>();
   static GlobalKey<NavigatorState> settingsNavigatorKey =
       GlobalKey<NavigatorState>();
@@ -60,31 +68,31 @@ class _TabScreenState extends State<TabScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.category,
+              Icons.notifications,
               color: warmGrey,
             ),
             activeIcon: Icon(
-              Icons.category,
+              Icons.notifications,
               color: pinky,
             ),
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.people,
+              Icons.publish,
               color: warmGrey,
             ),
             activeIcon: Icon(
-              Icons.people,
+              Icons.publish,
               color: pinky,
             ),
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.calendar_view_day,
+              Icons.person,
               color: warmGrey,
             ),
             activeIcon: Icon(
-              Icons.calendar_view_day,
+              Icons.person,
               color: pinky,
             ),
           ),
@@ -115,28 +123,29 @@ class _TabScreenState extends State<TabScreen> {
             );
           case 1:
             return CupertinoTabView(
+              navigatorKey: NavigationHolder.notificationNavigatorKey,
               builder: (context) {
-                return HomeScreen();
+                return NotificationScreen();
               },
             );
           case 2:
             return CupertinoTabView(
               builder: (context) {
-                return HomeScreen();
+                return PublishClassScreen();
               },
             );
           case 3:
             return CupertinoTabView(
-              navigatorKey: NavigationHolder.chatRoomNavigatorKey,
+              navigatorKey: NavigationHolder.myPageNavigatorKey,
               builder: (context) {
-                return HomeScreen();
+                return MyPageScreen();
               },
             );
           case 4:
             return CupertinoTabView(
-              navigatorKey: NavigationHolder.chatRoomNavigatorKey,
+              navigatorKey: NavigationHolder.settingsNavigatorKey,
               builder: (context) {
-                return HomeScreen();
+                return SettingsScreen();
               },
             );
           default:

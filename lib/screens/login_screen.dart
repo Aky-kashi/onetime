@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:onetime/view_models/login_view_model.dart';
+import 'package:onetime/view_models/login_view_model_google.dart';
 import 'dart:ui' as ui;
 
 import 'package:provider/provider.dart';
@@ -37,8 +37,13 @@ class LoginScreen extends StatelessWidget {
                 SignInButton(
                   Buttons.Google,
                   text: "Sign up with Google",
-                  onPressed: () => login(context),
-                )
+                  onPressed: () => loginGoogle(context),
+                ),
+                SignInButton(
+                  Buttons.Email,
+                  text: "Sign up with Email",
+                  onPressed: () => loginMail(context),
+                ),
 
 
               ],
@@ -52,7 +57,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  login(BuildContext context) async{
+  loginGoogle(BuildContext context) async{
     final loginViewModel = Provider.of<LoginViewModel>(context,listen:false);
     await loginViewModel.sighIn();
     if (!loginViewModel.isSuccessful){
@@ -66,5 +71,9 @@ class LoginScreen extends StatelessWidget {
   void _openHomeScreen(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(
         builder:(_) => HomeScreen()));
+  }
+
+  loginMail(BuildContext context) async{
+
   }
 }

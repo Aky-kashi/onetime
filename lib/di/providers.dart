@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:onetime/models/db/database_manager.dart';
 import 'package:onetime/repositories/user_repository.dart';
-import 'package:onetime/view_models/login_view_model.dart';
+import 'package:onetime/view_models/login_view_model_google.dart';
 import "package:provider/provider.dart";
 import 'package:provider/single_child_widget.dart';
 

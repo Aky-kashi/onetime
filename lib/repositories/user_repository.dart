@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import"package:firebase_core/firebase_core.dart";
+import "package:firebase_core/firebase_core.dart";
 import 'package:onetime/data_model/user.dart';
 import 'package:onetime/models/db/database_manager.dart';
-
-
 
 class UserRepository {
   final DatabaseManager dbManager;
@@ -23,7 +21,6 @@ class UserRepository {
     if (firebaseUser != null) {
       currentUser = await dbManager.getUserInfoFromDbById(firebaseUser.uid);
 
-
       return true;
     }
     return false;
@@ -32,8 +29,8 @@ class UserRepository {
   Future<bool> signIn() async {
     try {
       GoogleSignInAccount signInAccount = await _googleSignIn.signIn();
-      GoogleSignInAuthentication signInAuthentication = await signInAccount
-          .authentication;
+      GoogleSignInAuthentication signInAuthentication =
+          await signInAccount.authentication;
 
       final auth.AuthCredential credential = auth.GoogleAuthProvider.credential(
           idToken: signInAuthentication.idToken,
@@ -51,7 +48,6 @@ class UserRepository {
       return true;
     } catch (error) {
       return false;
-
     }
   }
 
@@ -62,11 +58,7 @@ class UserRepository {
       inAppUserName: firebaseUser.displayName,
       photoUrl: firebaseUser.photoURL,
       email: firebaseUser.email,
-      bio:"",
+      bio: "",
     );
-
-
   }
-
-
 }

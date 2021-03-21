@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
           shrinkWrap: true, // 高さ関連のエラーが出たら、使う
           itemCount: 4,
           itemBuilder: (BuildContext context, int index) {
-            return _buildClassTile(index + 1, 'introduction',context);
+            return _buildClassTile(index + 1, 'introduction', context);
           },
         ),
       ),
@@ -37,22 +37,21 @@ class HomeScreen extends StatelessWidget {
         ),
         subtitle: Text(introduction + index.toString()),
         trailing: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BuildClassIntroPage(),
-                        ),
-                      );
-                      //Navigator.of(context).pushNamed('/chatpage');
-                    },
-                    child: Icon(
-                      Icons.more_vert,
-                      color: Colors.black,
-                      size: 30,
-                    ),
-                  ),
-       
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BuildClassIntroPage(),
+              ),
+            );
+            //Navigator.of(context).pushNamed('/chatpage');
+          },
+          child: Icon(
+            Icons.more_vert,
+            color: Colors.black,
+            size: 30,
+          ),
+        ),
       ),
     );
   }

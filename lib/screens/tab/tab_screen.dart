@@ -63,7 +63,7 @@ class _TabScreenState extends State<TabScreen> {
             ),
             activeIcon: Icon(
               Icons.home,
-              color: pinky,
+              color: Colors.blue,
             ),
           ),
           BottomNavigationBarItem(
@@ -73,7 +73,7 @@ class _TabScreenState extends State<TabScreen> {
             ),
             activeIcon: Icon(
               Icons.notifications,
-              color: pinky,
+              color: Colors.blue,
             ),
           ),
           BottomNavigationBarItem(
@@ -83,7 +83,7 @@ class _TabScreenState extends State<TabScreen> {
             ),
             activeIcon: Icon(
               Icons.publish,
-              color: pinky,
+              color: Colors.blue,
             ),
           ),
           BottomNavigationBarItem(
@@ -93,7 +93,7 @@ class _TabScreenState extends State<TabScreen> {
             ),
             activeIcon: Icon(
               Icons.person,
-              color: pinky,
+              color: Colors.blue,
             ),
           ),
           BottomNavigationBarItem(
@@ -103,7 +103,7 @@ class _TabScreenState extends State<TabScreen> {
             ),
             activeIcon: Icon(
               Icons.settings,
-              color: pinky,
+              color: Colors.blue,
             ),
           ),
         ],

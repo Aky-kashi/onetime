@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final ThemeData lightThemeData = ThemeData.dark().copyWith(
+final ThemeData lightThemeData = ThemeData.light().copyWith(
   highlightColor: Colors.grey[200],
   splashColor: Colors.grey[200],
   primaryColor: Colors.blue,

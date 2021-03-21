@@ -28,8 +28,4 @@ List<SingleChildWidget> viewModels = [
     create: (context) => LoginViewModel(
         userRepository: Provider.of<UserRepository>(context, listen: false)),
   ),
-
-
 ];
-
-

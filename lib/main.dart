@@ -34,11 +34,12 @@ class MyApp extends StatelessWidget {
       home: FutureBuilder(
         future: loginViewModel.isSingIn(),
         builder: (context, AsyncSnapshot<bool> snapshot) {
-          if (snapshot.hasData && snapshot.data) {
-            return HomeScreen();
-          } else {
-            return LoginScreen();
-          }
+          return TabScreen();
+          // if (snapshot.hasData && snapshot.data) {
+          //   return HomeScreen();
+          // } else {
+          //   return LoginScreen();
+          // }
         },
       ),
     );

@@ -15,9 +15,7 @@ import 'models/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
-
   runApp(
     /// nao4869 - 一時的に、Riverpod, Providerを共存させる為、ProviderScopeで囲っておきます。
     riverPod.ProviderScope(
@@ -33,12 +31,12 @@ class MyApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // final loginViewModel = Provider.of<LoginViewModel>(context, listen: false);
-    final themeMode = riverPod.useProvider(themeSelectorProvider.state);
+    // final themeMode = riverPod.useProvider(themeSelectorProvider.state);
     return MaterialApp(
       title: "OneTime",
       debugShowCheckedModeBanner: false,
-      theme: themeMode == ThemeMode.dark ? darkThemeData : lightThemeData,
-      darkTheme: themeMode == ThemeMode.light ? lightThemeData : darkThemeData,
+      // theme: themeMode == ThemeMode.dark ? darkThemeData : lightThemeData,
+      // darkTheme: themeMode == ThemeMode.light ? lightThemeData : darkThemeData,
       // nao4869 - 一旦TabScreenがhomeとなるようにしておきます。
       // ログイン画面への遷移はホーム画面のAppBarからお願いします。
       home: TabScreen(),

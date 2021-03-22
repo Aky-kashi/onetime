@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:onetime/screens/login/login_screen.dart';
 import 'package:onetime/screens/mypage/buildClassIntroPage.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,6 +8,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        actions: [
+          IconButton(
+          icon:Icon(Icons.login),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen()),
+            );}
+          )],
         backgroundColor: Colors.lightBlue,
       ),
       body: Container(

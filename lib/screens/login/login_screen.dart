@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:onetime/post/post_page.dart';
 import 'package:onetime/view_models/login_view_model_google.dart';
 import 'dart:ui' as ui;
 
@@ -12,6 +13,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue,
+      ),
       body:Center(
         child: Consumer<LoginViewModel>(
           builder: (context, model, child){
@@ -64,16 +69,18 @@ class LoginScreen extends StatelessWidget {
       Fluttertoast.showToast(msg: "signInFailed");
       return;
     }
-    _openHomeScreen(context);
+    //_openHomeScreen(context);
 
   }
 
-  void _openHomeScreen(BuildContext context) {
+  /*void _openHomeScreen(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(
-        builder:(_) => HomeScreen()));
+        builder:(_) => PublishClassScreen()));
   }
-
+ */
   loginMail(BuildContext context) async{
 
   }
+
+
 }

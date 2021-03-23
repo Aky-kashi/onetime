@@ -4,6 +4,7 @@ import 'package:onetime/repositories/post_repository.dart';
 import 'package:onetime/repositories/user_repository.dart';
 import 'package:onetime/view_models/login_view_model_google.dart';
 import 'package:onetime/view_models/post_view_model.dart';
+import 'package:onetime/view_models/mypage_view_model.dart';
 import "package:provider/provider.dart";
 import 'package:provider/single_child_widget.dart';
 
@@ -40,6 +41,12 @@ List<SingleChildWidget> viewModels = [
 ),
   ChangeNotifierProvider<PostViewModel>(
     create: (context) => PostViewModel(
+      userRepository: Provider.of<UserRepository>(context, listen: false),
+      postRepository: Provider.of<PostRepository>(context, listen: false),
+    ),
+  ),
+  ChangeNotifierProvider<MyPageViewModel>(
+    create: (context) => MyPageViewModel(
       userRepository: Provider.of<UserRepository>(context, listen: false),
       postRepository: Provider.of<PostRepository>(context, listen: false),
     ),

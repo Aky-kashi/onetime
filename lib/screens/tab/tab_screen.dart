@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:onetime/screens/mypage/mypage_screen.dart';
+import 'package:onetime/screens/mypage/mypage.dart';
 import 'package:onetime/screens/notifications/notification_screen.dart';
 import 'package:onetime/screens/publish/publish_class_screen.dart';
 import 'package:onetime/screens/settings/settings_screen.dart';
+import 'package:onetime/utils/constans.dart';
 
 import '../../constants/colors.dart';
 import '../home/home_screen.dart';
@@ -138,7 +139,7 @@ class _TabScreenState extends State<TabScreen> {
             return CupertinoTabView(
               navigatorKey: NavigationHolder.myPageNavigatorKey,
               builder: (context) {
-                return MyPageScreen();
+                return MyPage(profileMode: ProfileMode.MYSELF,);
               },
             );
           case 4:

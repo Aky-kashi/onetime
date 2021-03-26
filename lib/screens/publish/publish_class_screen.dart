@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:onetime/screens/publish/confirm_dialog.dart';
 import 'package:onetime/screens/publish/time_setting_button.dart';
 import 'package:onetime/view_models/post_view_model.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,20 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.lightBlue,
+          actions: [
+            ElevatedButton(
+                child: Text(
+                  '投稿',
+                  style: TextStyle(color: Colors.white, fontSize: 15.0),
+                ),
+              onPressed: () => showConfirmedDialog(
+                  context: context,
+                  title: "投稿",
+                  content:"投稿しても良いですか?",
+                  onConfirmed: null,
+
+            )
+            )],
         ),
         body: Container(
             padding: EdgeInsets.all(5.0),
@@ -67,23 +82,6 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: TextField(
-                      controller: _captionController,
-                      decoration: InputDecoration(
-                        hintText: "今回の授業の金額設定をしてください。",
-                        labelText: '金額',
-                        border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Text("今回の授業の時間設定",style: TextStyle(height: 5, fontSize: 18),
-                  ),
-                  Time()
                 ]))));
   }
 

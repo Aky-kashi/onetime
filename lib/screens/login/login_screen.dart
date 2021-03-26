@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:onetime/post/post_page.dart';
+//import 'package:onetime/post/post_page.dart';
 import 'package:onetime/view_models/login_view_model_google.dart';
 import 'dart:ui' as ui;
 

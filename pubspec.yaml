@@ -37,6 +37,7 @@ dependencies:
   google_sign_in: ^4.5.9
   flutter_signin_button: ^1.1.0
   flutter_ui: ^0.0.9
+  uuid: any
 
   provider: ^5.0.0
 

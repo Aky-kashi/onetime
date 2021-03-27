@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:onetime/screens/mypage/mypage_screen.dart';
 import 'package:onetime/screens/notifications/notification_screen.dart';
-import 'package:onetime/screens/publish/publish_class_screen.dart';
+import 'package:onetime/screens/post/post_class_screen.dart';
 import 'package:onetime/screens/settings/settings_screen.dart';
 
 import '../../constants/colors.dart';

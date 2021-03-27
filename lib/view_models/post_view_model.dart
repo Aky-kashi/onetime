@@ -8,6 +8,7 @@ class PostViewModel extends ChangeNotifier{
   PostViewModel({this.userRepository, this.postRepository});
 
   bool isProcessing = false;
+  bool isImagePicked = false;
   String caption = "";
   //TODO
   Future<void> post() async{

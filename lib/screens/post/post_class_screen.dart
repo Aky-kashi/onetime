@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:onetime/screens/publish/confirm_dialog.dart';
-import 'package:onetime/screens/publish/pictute_page.dart';
-import 'package:onetime/screens/publish/time_setting_button.dart';
+import 'package:onetime/screens/post/confirm_dialog.dart';
+import 'package:onetime/screens/post/pictute_page.dart';
 import 'package:onetime/view_models/post_view_model.dart';
 import 'package:provider/provider.dart';
 

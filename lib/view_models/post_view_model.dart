@@ -9,6 +9,19 @@ class PostViewModel extends ChangeNotifier{
 
   bool isProcessing = false;
   String caption = "";
+  //TODO
+  Future<void> post() async{
+    isProcessing = true;
+    notifyListeners();
+
+    await postRepository.post(
+      UserRepository.currentUser,
+      caption,
+    );
+    isProcessing = false;
+    notifyListeners();
+
+  }
 
 
 }

@@ -16,6 +16,7 @@ const warmGrey = Color.fromRGBO(152, 152, 152, 1.0);
 const deepGray = Color.fromRGBO(114, 90, 136, 1);
 const pink = Color(0xffff7c98);
 const pinky = Color(0xffff88b3);
+const blue = Colors.blue;
 const deepPink = Color(0xffef2b76);
 
 const darkModeChatBackGroundColor = Color.fromRGBO(62, 83, 102, 1);

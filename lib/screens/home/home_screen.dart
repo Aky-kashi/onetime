@@ -30,169 +30,120 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController = TabController(vsync: this, length: tabs.length);
   }
 
+  final GlobalKey<ScaffoldState> drawerKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            ListView(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-                // header
-                UserAccountsDrawerHeader(
-                  //icon图标，当每上传照片时为登陆图标，上传照片后显示图片
-                  currentAccountPicture: GestureDetector(
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => LoginPage(),
-                    //     ),
-                    //   );
-                    //   //Navigator.of(context).pushNamed('/chatpage');
-                    // },
-                    child: Row(
-                      children: [
-                        InkWell(
-                          // onTap: () {
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => LoginPage(),
-                          //     ),
-                          //   );
-                          // },
-                          child: Icon(
-                            Icons.account_circle,
-                            size: 50,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  accountEmail: Text('@Onetime.com'),
-
-                  //背景
-                  decoration: BoxDecoration(
-                    color: Colors.blue[200],
-                  ),
-                ),
-
-                // make an account
-                ListTile(
-                    // title: GestureDetector(
-                    //   onTap: () {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => LoginPage(),
-                    //       ),
-                    //     );
-                    //     //Navigator.of(context).pushNamed('/chatpage');
-                    //   },
-                    //   child: Text('Make an account'),
-                    // ),
-                    // leading: GestureDetector(
-                    //   onTap: () {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => LoginPage(),
-                    //       ),
-                    //     );
-                    //     //Navigator.of(context).pushNamed('/chatpage');
-                    //   },
-                    //   child: Icon(
-                    //     Icons.account_circle,
-                    //     color: Colors.black,
-                    //     size: 30,
-                    //   ),
-                    // ),
-                    ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        //up tab
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: tabs,
-        ),
-
-        centerTitle: true,
-        actions: [
-          IconButton(
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        key: drawerKey,
+        appBar: AppBar(
+          //up tab
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: tabs,
+          ),
+          centerTitle: true,
+          actions: [
+            IconButton(
               icon: Icon(Icons.login),
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
-              })
-        ],
-        backgroundColor: Colors.lightBlue,
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children:tabs.map((Tab tab) {
-          return createTab(tab);
-        }).toList(),
+              },
+            )
+          ],
+          backgroundColor: Colors.lightBlue,
+        ),
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            createTabRecommed(),
+            createTabHot(),
+            createTabChecked(),
+            createTabGood(),
+          ],
+        ),
       ),
     );
   }
-      
-  
 
-Widget createTab(Tab tab) {
-    return Center(
-        child: Text(
-          tab.text + 'page',
-          style: const TextStyle(
-            fontSize: 32.0,
-            color: Colors.blue,
+  Widget createTabRecommed() {
+    return Container(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Card(
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/images/autumnicon.jpg',
+                    height: 50,
+                    width: 50,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+          ],
           ),
-        )
+        ],
+      ),
     );
   }
 }
-  Widget _buildClassTile(
-    int index,
-    String introduction,
-    context,
-  ) {
-    return Card(
-      child: ListTile(
-        leading: Icon(
-          Icons.class_,
-          size: 40,
-        ),
-        title: Text(
-          '授業' + index.toString(),
-        ),
-        subtitle: Text(introduction + index.toString()),
-        trailing: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => BuildClassIntroPage(),
-              ),
-            );
-            //Navigator.of(context).pushNamed('/chatpage');
-          },
-          child: Icon(
-            Icons.more_vert,
-            color: Colors.black,
-            size: 30,
-          ),
+
+Widget createTabHot() {
+  return Container(
+    child: Text('hot'),
+  );
+}
+
+Widget createTabChecked() {
+  return Container(
+    child: Text('checked'),
+  );
+}
+
+Widget createTabGood() {
+  return Container(
+    child: Text('good'),
+  );
+}
+
+Widget _buildClassTile(
+  int index,
+  String introduction,
+  context,
+) {
+  return Card(
+    child: ListTile(
+      leading: Icon(
+        Icons.class_,
+        size: 40,
+      ),
+      title: Text(
+        '授業' + index.toString(),
+      ),
+      subtitle: Text(introduction + index.toString()),
+      trailing: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BuildClassIntroPage(),
+            ),
+          );
+          //Navigator.of(context).pushNamed('/chatpage');
+        },
+        child: Icon(
+          Icons.more_vert,
+          color: Colors.black,
+          size: 30,
         ),
       ),
-    );
-  }
-
+    ),
+  );
+}

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import"package:flutter/material.dart";
 import 'package:onetime/repositories/post_repository.dart';
 import 'package:onetime/repositories/user_repository.dart';
@@ -7,6 +9,7 @@ class PostViewModel extends ChangeNotifier{
   final PostRepository postRepository;
   PostViewModel({this.userRepository, this.postRepository});
 
+  File imageFile;
   bool isProcessing = false;
   bool isImagePicked = false;
   String caption = "";
@@ -19,6 +22,20 @@ class PostViewModel extends ChangeNotifier{
       UserRepository.currentUser,
       caption,
     );
+    isProcessing = false;
+    notifyListeners();
+
+  }
+
+  Future <void> pickImage(uploadType) async{
+    isImagePicked = false;
+    isProcessing = true;
+    notifyListeners();
+
+    imageFile = await postRepository.pickedImage(uploadType);
+    print("pickedImage: ${imageFile.path}");
+
+    if (imageFile != null) isImagePicked = true;
     isProcessing = false;
     notifyListeners();
 

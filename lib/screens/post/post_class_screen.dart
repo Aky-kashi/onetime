@@ -1,15 +1,22 @@
 import "package:flutter/material.dart";
 import 'package:onetime/screens/post/confirm_dialog.dart';
 import 'package:onetime/screens/post/pictute_page.dart';
+import 'package:onetime/utils/constans.dart';
 import 'package:onetime/view_models/post_view_model.dart';
 import 'package:provider/provider.dart';
 
 class PublishClassScreen extends StatefulWidget {
+
+
   @override
   _PublishClassScreenState createState() => _PublishClassScreenState();
 }
 
 class _PublishClassScreenState extends State<PublishClassScreen> {
+
+  final UploadType uploadType;
+  _PublishClassScreenState({this.uploadType});
+
   final _firstController = TextEditingController();
   final _secondController = TextEditingController();
 
@@ -34,6 +41,11 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final postViewModel = Provider.of<PostViewModel>(context, listen:false);
+
+    if(!postViewModel.isImagePicked && !postViewModel.isProcessing){
+      Future(() => postViewModel.pickImage(uploadType));
+    }
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

@@ -72,25 +72,57 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget createTabRecommed() {
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Card(
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/autumnicon.jpg',
-                    height: 50,
-                    width: 50,
-                    fit: BoxFit.cover,
-                  ),
+    return Stack(
+      children: <Widget>[
+        Positioned(
+          left: 20.0,
+          top: 50.0,
+          width: 180.0,
+          height: 200.0,
+          child: Container(
+            child: ListTile(
+              leading: ClipRRect(
+                child: Image.asset(
+                  'assets/images/autumnicon.jpg',
+                  height: 20,
+                  width: 20,
                 ),
               ),
-          ],
+              title: Text('講師１'),
+              subtitle: Text('flutter入門編'),
+              onTap: () {/* react to the tile being tapped */},
+            ),
+            color: Colors.indigo,
           ),
-        ],
-      ),
+        ),
+        Positioned(
+          top: 50.0,
+          right: 20.0,
+          width: 180.0,
+          height: 200.0,
+          child: Container(
+            color: Colors.cyan,
+          ),
+        ),
+        Positioned(
+          bottom: 160.0,
+          left: 20.0,
+          width: 180.0,
+          height: 200.0,
+          child: Container(
+            color: Colors.yellowAccent,
+          ),
+        ),
+        Positioned(
+          bottom: 160.0,
+          right: 20.0,
+          width: 180.0,
+          height: 200.0,
+          child: Container(
+            color: Colors.lightGreen,
+          ),
+        ),
+      ],
     );
   }
 }

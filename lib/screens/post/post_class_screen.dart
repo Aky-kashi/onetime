@@ -19,6 +19,8 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
 
   final _firstController = TextEditingController();
   final _secondController = TextEditingController();
+  final _thirdController = TextEditingController();
+  final _fourthController = TextEditingController();
 
   @override
   void initState() {
@@ -26,6 +28,12 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
       _onCaptionUpdated();
     });
     _secondController.addListener(() {
+      _onCaptionUpdated();
+    });
+    _thirdController.addListener(() {
+      _onCaptionUpdated();
+    });
+    _fourthController.addListener(() {
       _onCaptionUpdated();
     });
     // TODO: implement initState
@@ -36,6 +44,8 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
   void dispose() {
     _firstController.dispose();
     _secondController.dispose();
+    _thirdController.dispose();
+    _fourthController.dispose();
     super.dispose();
   }
 
@@ -106,7 +116,38 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top:320.0),
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: TextField(
+                          controller: _thirdController,
+                          decoration: InputDecoration(
+                            hintText: "金額",
+                            labelText:  "今回の取引金額を入力してください。",
+                            border: InputBorder.none,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: TextField(
+                          controller: _fourthController,
+                          decoration: InputDecoration(
+                            hintText: "授業を行う時間",
+                            labelText:  "授業を行う時間を入力してください。",
+                            border: InputBorder.none,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue),
+                            ),
+                          ),
+                        ),
+                      ),
+
+
+
+                      Padding(
+                        padding: const EdgeInsets.only(top:180.0),
                         child: PicturePage(),
                       )
                     ]))));

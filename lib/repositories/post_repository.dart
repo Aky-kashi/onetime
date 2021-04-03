@@ -6,9 +6,9 @@ import 'package:onetime/data_model/user.dart';
 import 'package:onetime/models/db/database_manager.dart';
 import 'package:onetime/utils/constans.dart';
 
+
 class PostRepository {
   final DatabaseManager dbManager;
-
   PostRepository({this.dbManager});
 
   Future<void> post(User currentUser, String caption) async{
@@ -16,7 +16,7 @@ class PostRepository {
 
   }
 
-  Future<File> pickedImage(uploadType) async{
+   Future<File> pickedImage(uploadType) async{
     final imagePicker = ImagePicker();
 
     if(uploadType == UploadType.GALLERY) {
@@ -28,4 +28,6 @@ class PostRepository {
     }
 
   }
+
+
 }

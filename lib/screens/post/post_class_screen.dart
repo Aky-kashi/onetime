@@ -53,9 +53,7 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
   Widget build(BuildContext context) {
     final postViewModel = Provider.of<PostViewModel>(context, listen:false);
 
-    if(!postViewModel.isImagePicked && !postViewModel.isProcessing){
-      Future(() => postViewModel.pickImage(uploadType));
-    }
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

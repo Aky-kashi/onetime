@@ -23,7 +23,7 @@ class PostRepository {
       final pickedImage = await imagePicker.getImage(source: ImageSource.gallery);
       return File(pickedImage.path);
     } else {
-      final pickedImage = await imagePicker.getImage(source: ImageSource.gallery);
+      final pickedImage = await imagePicker.getImage(source: ImageSource.camera);
       return File(pickedImage.path);
     }
 

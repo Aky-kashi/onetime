@@ -5,16 +5,16 @@ import 'package:onetime/utils/constans.dart';
 import 'package:onetime/view_models/post_view_model.dart';
 import 'package:provider/provider.dart';
 
+import 'components/post_question_part.dart';
+
 class PublishClassScreen extends StatefulWidget {
-
-
   @override
   _PublishClassScreenState createState() => _PublishClassScreenState();
 }
 
 class _PublishClassScreenState extends State<PublishClassScreen> {
-
   final UploadType uploadType;
+
   _PublishClassScreenState({this.uploadType});
 
   final _firstController = TextEditingController();
@@ -51,8 +51,7 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final postViewModel = Provider.of<PostViewModel>(context, listen:false);
-
+    final postViewModel = Provider.of<PostViewModel>(context, listen: false);
 
     return Scaffold(
         appBar: AppBar(
@@ -64,19 +63,15 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                   '投稿',
                   style: TextStyle(color: Colors.white, fontSize: 15.0),
                 ),
-                onPressed: () =>
-                    showConfirmedDialog(
-                        context: context,
-                        title: "投稿",
-                        content: "投稿しても良いですか?",
-                        onConfirmed: (isConfirmed) {
-                          if (isConfirmed) {
-                            _post(context);
-                          }
-                        }
-
-                    )
-            )
+                onPressed: () => showConfirmedDialog(
+                    context: context,
+                    title: "投稿",
+                    content: "投稿しても良いですか?",
+                    onConfirmed: (isConfirmed) {
+                      if (isConfirmed) {
+                        _post(context);
+                      }
+                    }))
           ],
         ),
         body: Container(
@@ -85,70 +80,68 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: TextField(
-                          controller: _firstController,
-                          decoration: InputDecoration(
-                            hintText: "科目",
-                            labelText: '科目',
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue),
-                            ),
-                          ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: TextField(
+                      controller: _firstController,
+                      decoration: InputDecoration(
+                        hintText: "科目",
+                        labelText: '科目',
+                        border: InputBorder.none,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: TextField(
-                          controller: _secondController,
-                          decoration: InputDecoration(
-                            hintText: "具体的に記入してください。",
-                            labelText: '生徒:質問内容/先生:教えられる内容',
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue),
-                            ),
-                          ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: TextField(
+                      controller: _fourthController,
+                      decoration: InputDecoration(
+                        hintText: "授業を行う時間",
+                        labelText: "授業を行う時間を入力してください。",
+                        border: InputBorder.none,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: TextField(
-                          controller: _thirdController,
-                          decoration: InputDecoration(
-                            hintText: "金額",
-                            labelText:  "今回の取引金額を入力してください。",
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue),
-                            ),
-                          ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: TextField(
+                      controller: _thirdController,
+                      decoration: InputDecoration(
+                        hintText: "金額",
+                        labelText: "今回の取引金額を入力してください。",
+                        border: InputBorder.none,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: TextField(
-                          controller: _fourthController,
-                          decoration: InputDecoration(
-                            hintText: "授業を行う時間",
-                            labelText:  "授業を行う時間を入力してください。",
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue),
-                            ),
-                          ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: TextField(
+                      controller: _secondController,
+                      decoration: InputDecoration(
+                        hintText: "具体的に記入してください。",
+                        labelText: '生徒:質問内容/先生:教えられる内容',
+                        border: InputBorder.none,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
                         ),
                       ),
-
-
-
-                      Padding(
-                        padding: const EdgeInsets.only(top:180.0),
-                        child: PicturePage(),
-                      )
-                    ]))));
+                    ),
+                  ),
+                  PostQuestionPart(from: PostCaptionOpenMode.FROM_POST),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 180.0),
+                    child: PicturePage(),
+                  )
+                ]))));
   }
 
   _onCaptionUpdated() {

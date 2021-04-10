@@ -1,3 +1,4 @@
+import 'dart:io';
 import "package:flutter/material.dart";
 import 'package:onetime/screens/post/confirm_dialog.dart';
 import 'package:onetime/screens/post/pictute_page.dart';
@@ -14,6 +15,7 @@ class PublishClassScreen extends StatefulWidget {
 
 class _PublishClassScreenState extends State<PublishClassScreen> {
   final UploadType uploadType;
+  File imageFile;
 
   _PublishClassScreenState({this.uploadType});
 
@@ -78,72 +80,76 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
             padding: EdgeInsets.all(5.0),
             child: SingleChildScrollView(
                 child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: TextField(
-                      controller: _firstController,
-                      decoration: InputDecoration(
-                        hintText: "科目",
-                        labelText: '科目',
-                        border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: TextField(
+                    controller: _firstController,
+                    decoration: InputDecoration(
+                      hintText: "科目",
+                      labelText: '科目',
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: TextField(
-                      controller: _fourthController,
-                      decoration: InputDecoration(
-                        hintText: "授業を行う時間",
-                        labelText: "授業を行う時間を入力してください。",
-                        border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: TextField(
+                    controller: _fourthController,
+                    decoration: InputDecoration(
+                      hintText: "授業を行う時間",
+                      labelText: "授業を行う時間を入力してください。",
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: TextField(
-                      controller: _thirdController,
-                      decoration: InputDecoration(
-                        hintText: "金額",
-                        labelText: "今回の取引金額を入力してください。",
-                        border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: TextField(
+                    controller: _thirdController,
+                    decoration: InputDecoration(
+                      hintText: "金額",
+                      labelText: "今回の取引金額を入力してください。",
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: TextField(
-                      controller: _secondController,
-                      decoration: InputDecoration(
-                        hintText: "具体的に記入してください。",
-                        labelText: '生徒:質問内容/先生:教えられる内容',
-                        border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: TextField(
+                    controller: _secondController,
+                    decoration: InputDecoration(
+                      hintText: "具体的に記入してください。",
+                      labelText: '生徒:質問内容/先生:教えられる内容',
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
                       ),
                     ),
                   ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 40.0),
-                        child: PicturePage(),
-                      ),
-                  //投稿される前は、Containerにしたい。
-                  PostQuestionPart(from: PostCaptionOpenMode.FROM_POST),
-
-                ]))));
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 40.0),
+                  child: PicturePage(),
+                ),
+                //TODO 投稿される前は、Containerにしたい。
+                imageFile == null
+                    ? Container()
+                    : PostQuestionPart(
+                        from: PostCaptionOpenMode.FROM_POST,
+                      )
+              ],
+            ))));
   }
 
   _onCaptionUpdated() {

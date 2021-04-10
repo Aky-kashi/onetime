@@ -136,11 +136,12 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                       ),
                     ),
                   ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 40.0),
+                        child: PicturePage(),
+                      ),
                   PostQuestionPart(from: PostCaptionOpenMode.FROM_POST),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 180.0),
-                    child: PicturePage(),
-                  )
+
                 ]))));
   }
 

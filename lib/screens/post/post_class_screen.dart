@@ -53,7 +53,7 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final postViewModel = Provider.of<PostViewModel>(context, listen: false);
+    final postViewModel = Provider.of<PostViewModel>(context);
 
     return Scaffold(
         appBar: AppBar(
@@ -138,16 +138,30 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40.0),
-                  child: PicturePage(),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 40.0),
+                      child: PicturePage(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: postViewModel.imageFile == null
+                          ? Container()
+                          : Container(
+                            height: 50, width: 50,
+                            child: SingleChildScrollView(
+                              child: PostQuestionPart(
+                        from: PostCaptionOpenMode.FROM_POST,
+                      ),
+                            ),
+                          ),
+                    )
+                  ],
                 ),
                 //TODO 投稿される前は、Containerにしたい。
-                imageFile == null
-                    ? Container()
-                    : PostQuestionPart(
-                        from: PostCaptionOpenMode.FROM_POST,
-                      )
+
+
               ],
             ))));
   }

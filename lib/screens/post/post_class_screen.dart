@@ -140,6 +140,7 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 40.0),
                         child: PicturePage(),
                       ),
+                  //投稿される前は、Containerにしたい。
                   PostQuestionPart(from: PostCaptionOpenMode.FROM_POST),
 
                 ]))));

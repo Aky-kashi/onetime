@@ -9,30 +9,19 @@ import 'package:provider/provider.dart';
 
 class PostQuestionPart extends StatelessWidget {
   final PostCaptionOpenMode from;
-
   PostQuestionPart({@required this.from});
 
   @override
   Widget build(BuildContext context) {
     if (from == PostCaptionOpenMode.FROM_POST) {
-
       final postViewModel = Provider.of<PostViewModel>(context);
       final image = Image.file(postViewModel.imageFile);
-
-      return ListTile(
-          leading:HeroImage(
-          image: Image.file(postViewModel.imageFile),
-          onTap: () => _displayLargeImage(context, image),
-
-        ));
+      return Image.file(postViewModel.imageFile);
         //title: PostQuestionPart(),
     } else {
       return Container();
     }
   }
 
-  _displayLargeImage(BuildContext context, image) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (_) => EnlargeImageScreen(image: image)));
-  }
+
 }

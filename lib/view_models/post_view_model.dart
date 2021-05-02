@@ -21,6 +21,7 @@ class PostViewModel extends ChangeNotifier{
     await postRepository.post(
       UserRepository.currentUser,
       caption,
+      imageFile,
     );
     isProcessing = false;
     notifyListeners();

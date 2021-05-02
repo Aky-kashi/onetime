@@ -173,6 +173,9 @@ class _PublishClassScreenState extends State<PublishClassScreen> {
 
   void _post(BuildContext context) async {
     //viewModelに外注。
+    print("call");
     final postViewModel = Provider.of<PostViewModel>(context, listen: false);
+    await postViewModel.post();
+
   }
 }

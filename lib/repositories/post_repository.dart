@@ -10,7 +10,9 @@ import 'package:uuid/uuid.dart';
 class PostRepository {
   final DatabaseManager dbManager;
 
-  PostRepository({this.dbManager});
+  PostRepository({
+    @required this.dbManager,
+  });
 
   Future<File> pickedImage(uploadType) async {
     final imagePicker = ImagePicker();
@@ -26,10 +28,9 @@ class PostRepository {
     }
   }
 
-  Future<void> post(User currentUser, String caption, File imageFile) async{
-   final storageId = Uuid().v1();
-   final imageUrl = await dbManager.uploadImageToStorage(imageFile, storageId);
-   print("storageImageUrl: $imageUrl");
-
+  Future<void> post(User currentUser, String caption, File imageFile) async {
+    final storageId = Uuid().v1();
+    final imageUrl = await dbManager.uploadImageToStorage(imageFile, storageId);
+    print("storageImageUrl: $imageUrl");
   }
 }
